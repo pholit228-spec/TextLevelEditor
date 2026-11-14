@@ -1,0 +1,30 @@
+{
+	"geode": "4.0.0",
+	"gd": {
+		"win": "*",
+		"android": "*"
+	},
+	"version": "v1.0.0",
+	"id": "local.textlevel",
+	"name": "Text Level",
+	"developer": "local",
+	"description": "Build levels from text: place/delete/move/paint objects, triggers, colors, background and music by script.",
+	"settings": {
+		"pos-x": {
+			"type": "int",
+			"name": "Buttons X (% of screen)",
+			"description": "Horizontal position of the Paste/File/Dump/Help buttons in the editor.",
+			"default": 4,
+			"min": 0,
+			"max": 100
+		},
+		"pos-y": {
+			"type": "int",
+			"name": "Buttons Y (% of screen)",
+			"description": "Vertical position of the first button (the others go down from it).",
+			"default": 62,
+			"min": 0,
+			"max": 100
+		}
+	}
+}
