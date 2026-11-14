@@ -21,6 +21,12 @@ set(GEODE_DISABLE_FMT_CONSTEVAL ON CACHE BOOL "Disable fmt consteval checks for 
 
 add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
 
+# GeodeBindings sources must be compiled separately; Unity builds merge
+# generated SDK translation units and cause missing/incomplete type errors.
+if(TARGET GeodeBindings)
+    set_target_properties(GeodeBindings PROPERTIES UNITY_BUILD OFF)
+endif()
+
 # fmt 10.2.1 fails to compile with Clang 21 in C++20 mode (FMT_STRING
 # consteval diagnostics). Compile only the fmt dependency as C++17; the mod
 # itself and Geode targets retain the project's C++20 setting.
