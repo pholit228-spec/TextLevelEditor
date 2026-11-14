@@ -16,6 +16,9 @@ else()
     message(STATUS "Found Geode: $ENV{GEODE_SDK}")
 endif()
 
+# Geode bundles fmt 10.2.x; disable its consteval checks for Clang cross-builds.
+set(GEODE_DISABLE_FMT_CONSTEVAL ON CACHE BOOL "Disable fmt consteval checks for cross-compilation" FORCE)
+
 add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
 
 setup_geode_mod(${PROJECT_NAME})
