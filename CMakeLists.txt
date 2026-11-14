@@ -16,8 +16,8 @@ else()
     message(STATUS "Found Geode: $ENV{GEODE_SDK}")
 endif()
 
-# Use the fmt compatibility setting provided by the selected Geode SDK.
-set(GEODE_DISABLE_FMT_CONSTEVAL ON CACHE BOOL "Disable fmt consteval checks for cross-compilation" FORCE)
+# Keep the SDK default for GEODE_DISABLE_FMT_CONSTEVAL. Newer fmt versions
+# expose fmt::fmt as an alias target, which cannot be modified directly.
 
 add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
 
